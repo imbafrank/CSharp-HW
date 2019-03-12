@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Factory_Method
+{
+    class TypeAFactory:IFactory
+    {
+        public IType Generation() 
+        {
+            Console.WriteLine("A is generated");
+            return new SpecificTypeA();
+        }
+    }
+}
