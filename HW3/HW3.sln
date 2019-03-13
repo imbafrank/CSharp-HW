@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple Factory", "Simple Fa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory Method", "Factory Method\Factory Method.csproj", "{7DB79B5F-22AD-4215-A021-0B7DA06ECAE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade Pattern", "Facade Pattern\Facade Pattern.csproj", "{5E4DCED5-5A18-45F6-96C3-F9A51F7AE456}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7DB79B5F-22AD-4215-A021-0B7DA06ECAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB79B5F-22AD-4215-A021-0B7DA06ECAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DB79B5F-22AD-4215-A021-0B7DA06ECAE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4DCED5-5A18-45F6-96C3-F9A51F7AE456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4DCED5-5A18-45F6-96C3-F9A51F7AE456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4DCED5-5A18-45F6-96C3-F9A51F7AE456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4DCED5-5A18-45F6-96C3-F9A51F7AE456}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
