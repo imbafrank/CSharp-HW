@@ -8,10 +8,10 @@ namespace OrderSystem
 {
     class OrderDetail
     {
-        string itemname { get; }
-        int itemnum { get; set; }
+        public string itemname { get; }
+        public int itemnum { get; set; }
 
-        public OrderDetail(string itemid, int itemnum)
+        public OrderDetail(string itemname, int itemnum)
         {
             this.itemnum = itemnum;
             this.itemname = itemname;
