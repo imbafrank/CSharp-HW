@@ -8,9 +8,19 @@ namespace OrderSystem
 {
     class Order
     {
-        public int orderid { get; }
-        List<OrderDetail> item;
-        string custmername;
+        int orderid { get; }
+        List<OrderDetail> item { get; set; }
+        string customername { get; }
 
+        public Order(int orderid, string customername)
+        {
+            this.orderid = orderid;
+            this.customername = customername;
+        }
+
+        public int Getoid()
+        {
+            return orderid;
+        }
     }
 }

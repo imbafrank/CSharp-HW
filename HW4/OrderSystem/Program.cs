@@ -10,12 +10,20 @@ namespace OrderSystem
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            OrderService os = new OrderService();
+            int oid;
+            if (int.TryParse(Console.ReadLine(), out oid))
+            {
+                Console.WriteLine("Hello World!");
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+                os.AddOrder(oid, "hi");
+                Console.WriteLine("{0}", os.GetByCname("hi")[0]);
+
+            }
+
+
+            //Console.ReadKey();
+
         }
     }
 }
