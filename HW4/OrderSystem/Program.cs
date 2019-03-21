@@ -15,13 +15,14 @@ namespace OrderSystem
             {
                 int multifunc;
                 Console.Write("1.Add order\n2.Remove order\n3.Search order by client name\n4.Add order detail\n5.Update orderdetail\n6.Remove order detail\nEnter function:");
-                Order resultorder = new Order;
+                Order resultorder = new Order();
+                bool selected = false;
                 if (int.TryParse(Console.ReadLine(), out multifunc))
                     switch(multifunc)
                     {
                         case 1:
                             int addorderoid;
-                            Console.WriteLine("Enter oid");
+                            Console.WriteLine("Enter order id");
                             if (int.TryParse(Console.ReadLine(), out addorderoid))
                             {
                                 Console.WriteLine("Enter client name");
@@ -43,19 +44,31 @@ namespace OrderSystem
                             Console.Write("Press number of order for further process");
                             int numchoose;
                             if (int.TryParse(Console.ReadLine(), out numchoose))
-                                if(1<=numchoose&&numchoose<=clientnamesearchresult.Count)
+                            {
+                                if (1 <= numchoose && numchoose <= clientnamesearchresult.Count)
                                 {
-                                    resultorder = clientnamesearchresult[numchoose-1];
+                                    resultorder = clientnamesearchresult[numchoose - 1];
+                                    selected = true;
                                 }
+                            }
                                 break;
                         case 4:
-                            resultorder.AddItem(new OrderDetail(Console.ReadLine(), int.Parse(Console.ReadLine())));
+                            if (selected)
+                                resultorder.AddItem(new OrderDetail(Console.ReadLine(), int.Parse(Console.ReadLine())));
+                            else
+                                throw new Exception("No order is selected");
                             break;
                         case 5:
-                            resultorder.UpdateItem(Console.ReadLine(), int.Parse(Console.ReadLine()));
+                            if (selected)
+                                resultorder.UpdateItem(Console.ReadLine(), int.Parse(Console.ReadLine()));
+                            else
+                                throw new Exception("No order is selected");
                             break;
                         case 6:
-                            resultorder.RemoveItem(Console.ReadLine());
+                            if (selected)
+                                resultorder.RemoveItem(Console.ReadLine());
+                            else
+                                throw new Exception("No order is selected");
                             break;
                     }
                 else
