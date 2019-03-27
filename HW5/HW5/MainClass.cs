@@ -17,10 +17,10 @@ namespace ordertest {
                 Goods apple = new Goods(3, "apple", 5.59);
 
                 OrderDetail orderDetails1 = new OrderDetail(1, apple, 8);
-                OrderDetail orderDetails2 = new OrderDetail(1, eggs, 2);
+                OrderDetail orderDetails2 = new OrderDetail(2, eggs, 2);
                 OrderDetail orderDetails3 = new OrderDetail(3, milk, 1);
 
-                Order order1 = new Order(1, customer1);
+                Order order1 = new Order(11, customer1);
                 Order order2 = new Order(2, customer2);
                 Order order3 = new Order(3, customer2);
                 order1.AddDetails(orderDetails1);
@@ -31,13 +31,15 @@ namespace ordertest {
                 order2.AddDetails(orderDetails3);
                 order3.AddDetails(orderDetails3);
 
+                
                 OrderService os = new OrderService();
                 os.AddOrder(order1);
                 os.AddOrder(order2);
                 os.AddOrder(order3);
 
-                Console.WriteLine("GetAllOrders");
+                Console.WriteLine("GetAllOrdersInAscendingOrder");
                 List<Order> orders = os.QueryAllOrders();
+                orders.Sort();
                 foreach (Order order in orders)
                     Console.WriteLine(order.ToString());
 

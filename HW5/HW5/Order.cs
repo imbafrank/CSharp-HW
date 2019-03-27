@@ -10,7 +10,7 @@ namespace ordertest {
     /// Order class : all orderDetails
     /// to record each goods and its quantity in this ordering
     /// </summary>
-    class Order {
+    class Order:IComparable{
 
         private List<OrderDetail> details=new List<OrderDetail>();
 
@@ -93,7 +93,15 @@ namespace ordertest {
 
             return hashcode;
         }
-            
 
+        public int CompareTo(object obj)
+        {
+            if(GetType() == obj.GetType())
+            {
+                Order oobj = (Order)obj;
+                return Id.CompareTo(oobj.Id);
+            }
+            return 1;
+        }
     }
 }
