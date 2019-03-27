@@ -38,13 +38,18 @@ namespace ordertest {
         /// </summary>
         /// <param name="orderId">id of the order to find</param>
         /// <returns>List<Order></returns> 
+    //public Order GetById(uint orderId) {
+    //  foreach (Order o in orderList) {
+    //    if (o.Id == orderId) {
+    //      return o;
+    //    }
+    //  }
+    //  return null;
+    //}
     public Order GetById(uint orderId) {
-      foreach (Order o in orderList) {
-        if (o.Id == orderId) {
-          return o;
-        }
-      }
-      return null;
+            var query = orderList
+                    .Where(order => order.Id == orderId);
+        return query.ToList()[0];
     }
 
     /// <summary>
@@ -65,31 +70,42 @@ namespace ordertest {
       return orderList;
     }
 
-   
-    /// <summary>
-    /// query by goodsName
-    /// </summary>
-    /// <param name="goodsName">the name of goods in order's orderDetail</param>
-    /// <returns></returns> 
-    public List<Order> QueryByGoodsName(string goodsName) {
-      List<Order> result = new List<Order>();
-      foreach (Order order in orderList) {
-        foreach (OrderDetail detail in order.Details) {
-          if (detail.Goods.Name == goodsName) {
-            result.Add(order);
-            break;
-          }
-        }
-      }
-      return result;
-    }
 
-    /// <summary>
-    /// query by customerName
-    /// </summary>
-    /// <param name="customerName">customer name</param>
-    /// <returns></returns> 
-    public List<Order> QueryByCustomerName(string customerName) {
+        /// <summary>
+        /// query by goodsName
+        /// </summary>
+        /// <param name="goodsName">the name of goods in order's orderDetail</param>
+        /// <returns></returns> 
+        //public List<Order> QueryByGoodsName(string goodsName) {
+        //  List<Order> result = new List<Order>();
+        //  foreach (Order order in orderList) {
+        //    foreach (OrderDetail detail in order.Details) {
+        //      if (detail.Goods.Name == goodsName) {
+        //        result.Add(order);
+        //        break;
+        //      }
+        //    }
+        //  }
+        //  return result;
+        //}
+        public List<Order> QueryByGoodsName(string goodsName)
+        {
+            List<Order> result = new List<Order>();
+            var query =
+                from o in orderList
+                where o.Id > 0
+                from od in o.Details
+                where od.Goods.Name == goodsName
+                select o;
+
+            return query.ToList();
+        }
+        /// <summary>
+        /// query by customerName
+        /// </summary>
+        /// <param name="customerName">customer name</param>
+        /// <returns></returns> 
+        public List<Order> QueryByCustomerName(string customerName) {
       var query = orderList
           .Where(order => order.Customer.Name == customerName);
       return query.ToList();
