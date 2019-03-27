@@ -22,6 +22,7 @@ namespace ordertest {
         public Order(uint orderId, Customer customer) {
             Id = orderId;
             Customer = customer;
+            sum = 0;
         }
 
         /// <summary>
@@ -33,10 +34,29 @@ namespace ordertest {
         /// the man who orders goods
         /// </summary>
         public Customer Customer { get; set; }
-
+        public double sum { get; set; }
 
         public List<OrderDetail> Details {
             get =>this.details; }
+
+        public double CalculateSum()
+        {
+
+            
+
+                
+            foreach (OrderDetail od in Details)
+            {
+                sum += od.Goods.Price * od.Quantity;
+            }
+
+
+
+
+            return sum;
+
+            
+        }
 
         /// <summary>
         /// add new orderDetail to order
@@ -103,5 +123,7 @@ namespace ordertest {
             }
             return 1;
         }
+
+
     }
 }

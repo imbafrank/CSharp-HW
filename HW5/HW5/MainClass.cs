@@ -20,16 +20,16 @@ namespace ordertest {
                 OrderDetail orderDetails2 = new OrderDetail(2, eggs, 2);
                 OrderDetail orderDetails3 = new OrderDetail(3, milk, 1);
 
-                Order order1 = new Order(11, customer1);
+                Order order1 = new Order(1, customer1);
                 Order order2 = new Order(2, customer2);
                 Order order3 = new Order(3, customer2);
                 order1.AddDetails(orderDetails1);
                 order1.AddDetails(orderDetails2);
-                order1.AddDetails(orderDetails3);
+                //order1.AddDetails(orderDetails3);
                 //order1.AddOrderDetails(orderDetails3);
-                order2.AddDetails(orderDetails2);
+                order3.AddDetails(orderDetails2);
+                //order3.AddDetails(orderDetails3);
                 order2.AddDetails(orderDetails3);
-                order3.AddDetails(orderDetails3);
 
                 
                 OrderService os = new OrderService();
@@ -37,11 +37,26 @@ namespace ordertest {
                 os.AddOrder(order2);
                 os.AddOrder(order3);
 
-                Console.WriteLine("GetAllOrdersInAscendingOrder");
+                Console.WriteLine("GetAllOrdersInIDAscendingOrder");
                 List<Order> orders = os.QueryAllOrders();
                 orders.Sort();
                 foreach (Order order in orders)
                     Console.WriteLine(order.ToString());
+
+
+                Console.WriteLine("GetAllOrdersInSumDecendingOrder");
+                foreach (Order order in orders)
+                {
+                    order.CalculateSum();
+                }
+                
+                foreach (Order order in orders.OrderByDescending(i => i.sum))
+                {
+                    Console.WriteLine(order.ToString());
+                    Console.WriteLine("\tsum = "+order.sum.ToString());
+
+                }
+
 
                 Console.WriteLine("GetOrdersByCustomerName:'Customer2'");
                 orders = os.QueryByCustomerName("Customer2");
@@ -63,5 +78,7 @@ namespace ordertest {
             }
             
         }
+
+
     }
 }
