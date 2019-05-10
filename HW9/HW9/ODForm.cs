@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HW8
+namespace HW9
 {
     public partial class ODForm : Form
     {
@@ -104,92 +104,79 @@ namespace HW8
 
         private void cIdTextBox_Leave(object sender, EventArgs e)
         {
-            if (cIdTextBox.Text == "")
-                cIdTextBox.Text = "Id";
+            cIdTextBox.Text = "Id";
         }
 
         private void cIdTextBox_Enter(object sender, EventArgs e)
         {
-            if(cIdTextBox.Text == "Id")
-                cIdTextBox.Text = "";
+            cIdTextBox.Text = "";
 
         }
 
         private void oIdTextBox_Enter(object sender, EventArgs e)
         {
-            if (oIdTextBox.Text == "Id")
-                oIdTextBox.Text = "";
+            oIdTextBox.Text = "";
         }
 
         private void oIdTextBox_Leave(object sender, EventArgs e)
         {
-            if(oIdTextBox.Text=="")
-                oIdTextBox.Text = "Id";
+            oIdTextBox.Text = "Id";
         }
 
         private void cNameTextBox_Enter(object sender, EventArgs e)
         {
-            if (oIdTextBox.Text == "Name")
-                oIdTextBox.Text = "";
+            oIdTextBox.Text = "";
 
         }
 
         private void cNameTextBox_Leave(object sender, EventArgs e)
         {
-            if (cNameTextBox.Text == "")
-                cNameTextBox.Text = "Name";
+            cNameTextBox.Text = "Name";
         }
 
         private void gIdTextBox_Enter(object sender, EventArgs e)
         {
-            if(gIdTextBox.Text == "Id")
-                gIdTextBox.Text = "";
+            oIdTextBox.Text = "";
+
         }
 
         private void gIdTextBox_Leave(object sender, EventArgs e)
         {
-            if(gIdTextBox.Text == "")
-                gIdTextBox.Text = "Id";
+            gIdTextBox.Text = "Id";
         }
 
         private void gNameTextBox_Enter(object sender, EventArgs e)
         {
-            if(gNameTextBox.Text == "Name")
-                gNameTextBox.Text = "";
+            oIdTextBox.Text = "";
 
         }
 
         private void gNameTextBox_Leave(object sender, EventArgs e)
         {
-            if (gNameTextBox.Text == "")
-                gNameTextBox.Text = "Name";
+            gNameTextBox.Text = "Name";
         }
 
         private void gPriceTextBox_Enter(object sender, EventArgs e)
         {
-            if(gPriceTextBox.Text == "Price")
-                gPriceTextBox.Text = "";
+            oIdTextBox.Text = "";
 
         }
 
         private void gPriceTextBox_Leave(object sender, EventArgs e)
         {
-            if (gPriceTextBox.Text == "")
-                gPriceTextBox.Text = "Price";
+            gPriceTextBox.Text = "Price";
 
         }
 
         private void quantityTextBox_Enter(object sender, EventArgs e)
         {
-            if(quantityTextBox.Text == "Quantity")
-                quantityTextBox.Text = "";
+            quantityTextBox.Text = "";
 
         }
 
         private void quantityTextBox_Leave(object sender, EventArgs e)
         {
-            if(quantityTextBox.Text == "")
-                quantityTextBox.Text = "Quantity";
+            quantityTextBox.Text = "Quantity";
         }
     }
 }
