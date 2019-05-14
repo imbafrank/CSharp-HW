@@ -7,25 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HW9EF;
 
 namespace HW9
 {
     public partial class OSForm : Form
     {
-        int oid1 = 1;
-        Customer c1 = new Customer(1, "jack");
-        Customer c2 = new Customer(1, "james");
+        String oid1 = "3";
+        //Customer c1 = new Customer(1, "jack");
+        //Customer c2 = new Customer(1, "james");
         OrderService os1 = new OrderService();
 
         public OSForm()
         {
             InitializeComponent();
-            Order od1 = new Order(oid1, c1);
-            Order od2 = new Order(2, c2);
-            od1.AddDetails(new OrderDetail(new Goods(1, "hi", 5), 2));
-            od2.AddDetails(new OrderDetail(new Goods(2, "hi2", 25), 22));
-            os1.AddOrder(od1);
-            os1.AddOrder(od2);
+            OrderService os = new OrderService();
+            //Order order = new Order("6", "2");//, new List<OrderDetail>());
+
+            //os.AddOrder(order);
+
+            ////Console.ReadLine();
+
+            //Order od1 = new Order(oid1, "jack");
+            //Order od2 = new Order("4", "james");
+            //od1.AddDetails(new OrderDetail("hi", "2" , 3, 4));
+            //od2.AddDetails(new OrderDetail("hi2", "22" , 3, 4));
+            //os1.AddOrder(od1);
+            //os1.AddOrder(od2);
             orderBindingSource.DataSource = os1.QueryAll();
         }
 
@@ -45,21 +53,21 @@ namespace HW9
                 else
                     orderBindingSource.DataSource = os1.QueryByGoodsName(textBox1.Text);
             }
-            else if (comboBox1.Text.Equals("Query By Total Amount"))
-            {
-                if (textBox1.Text == "")
-                {
-                    MessageBox.Show("Please enter a Total Amount!");
-                    //orderBindingSource.DataSourceChanged += os1.QueryAll();
-                }
-                else
-                {
-                    float.TryParse(textBox1.Text, out float amout);
-                    orderBindingSource.DataSource = os1.QueryByTotalAmount(amout);
+            //else if (comboBox1.Text.Equals("Query By Total Amount"))
+            //{
+            //    if (textBox1.Text == "")
+            //    {
+            //        MessageBox.Show("Please enter a Total Amount!");
+            //        //orderBindingSource.DataSourceChanged += os1.QueryAll();
+            //    }
+            //    else
+            //    {
+            //        float.TryParse(textBox1.Text, out float amout);
+            //        orderBindingSource.DataSource = os1.QueryByTotalAmount(amout);
 
-                }
-                    //orderBindingSource.DataSource = os1.QueryByTotalAmount(10);
-            }
+            //    }
+            //        //orderBindingSource.DataSource = os1.QueryByTotalAmount(10);
+            //}
             else if (comboBox1.Text.Equals("Query By Customer Name"))
             {
                 if (textBox1.Text == "")

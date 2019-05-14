@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HW9EF;
 
 namespace HW9
 {
@@ -18,11 +19,11 @@ namespace HW9
         public ODForm()
         {
             InitializeComponent();
-            customerBindingSource.Add(new Customer(1, "liuwang"));
-            customerBindingSource.Add(new Customer(2, "jams"));
-            goodsBindingSource.Add(new Goods(3, "apple", 5.59f));
-            goodsBindingSource.Add(new Goods(2, "egg", 4.99f));
-            goodsBindingSource.Add(new Goods(1, "milk", 69.9f));
+            //customerBindingSource.Add(new Customer(1, "liuwang"));
+            //customerBindingSource.Add(new Customer(2, "jams"));
+            //goodsBindingSource.Add(new Goods(3, "apple", 5.59f));
+            //goodsBindingSource.Add(new Goods(2, "egg", 4.99f));
+            //goodsBindingSource.Add(new Goods(1, "milk", 69.9f));
         }
 
         public ODForm(Order od, bool state) //:this()
@@ -43,7 +44,7 @@ namespace HW9
             quantityTextBox.Text = "Quantity";
             quantityTextBox.ForeColor = Color.Gray;
             orderBindingSource.DataSource = od;
-            if(od!=null)
+            if (od != null)
                 orderDetailBindingSource.DataSource = od.Details;
             //MessageBox.Show(od.Customer.Name);
             this.state = state;
@@ -65,29 +66,27 @@ namespace HW9
                 gNameTextBox.Enabled = false;
                 gPriceTextBox.Enabled = false;
 
-                
+
             }
-            
-                
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OrderDetail detail = new OrderDetail(new Goods(uint.Parse(gIdTextBox.Text), gNameTextBox.Text, float.Parse(gPriceTextBox.Text)), uint.Parse(quantityTextBox.Text));
-            //MessageBox.Show(((OrderDetail)orderDetailBindingSource.Current).Goods.Name);
-            o.AddDetails(detail);
-            
-            //orderDetailBindingSource.MoveLast();
-            
+            ////OrderDetail detail = new OrderDetail(new Goods(uint.Parse(gIdTextBox.Text), gNameTextBox.Text, float.Parse(gPriceTextBox.Text)), uint.Parse(quantityTextBox.Text));
+            ////o.AddDetails(detail);
+
+
             orderDetailBindingSource.ResetBindings(false);
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(!state)
+            if (!state)
             {
-                o = new Order(int.Parse(oIdTextBox.Text), new Customer(uint.Parse(cIdTextBox.Text), cNameTextBox.Text));
+               //// o = new Order(int.Parse(oIdTextBox.Text), new Customer(uint.Parse(cIdTextBox.Text), cNameTextBox.Text));
             }
             gIdTextBox.Enabled = true;
             quantityTextBox.Enabled = true;
@@ -104,79 +103,92 @@ namespace HW9
 
         private void cIdTextBox_Leave(object sender, EventArgs e)
         {
-            cIdTextBox.Text = "Id";
+            if (cIdTextBox.Text == "")
+                cIdTextBox.Text = "Id";
         }
 
         private void cIdTextBox_Enter(object sender, EventArgs e)
         {
-            cIdTextBox.Text = "";
+            if (cIdTextBox.Text == "Id")
+                cIdTextBox.Text = "";
 
         }
 
         private void oIdTextBox_Enter(object sender, EventArgs e)
         {
-            oIdTextBox.Text = "";
+            if (oIdTextBox.Text == "Id")
+                oIdTextBox.Text = "";
         }
 
         private void oIdTextBox_Leave(object sender, EventArgs e)
         {
-            oIdTextBox.Text = "Id";
+            if (oIdTextBox.Text == "")
+                oIdTextBox.Text = "Id";
         }
 
         private void cNameTextBox_Enter(object sender, EventArgs e)
         {
-            oIdTextBox.Text = "";
+            if (oIdTextBox.Text == "Name")
+                oIdTextBox.Text = "";
 
         }
 
         private void cNameTextBox_Leave(object sender, EventArgs e)
         {
-            cNameTextBox.Text = "Name";
+            if (cNameTextBox.Text == "")
+                cNameTextBox.Text = "Name";
         }
 
         private void gIdTextBox_Enter(object sender, EventArgs e)
         {
-            oIdTextBox.Text = "";
-
+            if (gIdTextBox.Text == "Id")
+                gIdTextBox.Text = "";
         }
 
         private void gIdTextBox_Leave(object sender, EventArgs e)
         {
-            gIdTextBox.Text = "Id";
+            if (gIdTextBox.Text == "")
+                gIdTextBox.Text = "Id";
         }
 
         private void gNameTextBox_Enter(object sender, EventArgs e)
         {
-            oIdTextBox.Text = "";
+            if (gNameTextBox.Text == "Name")
+                gNameTextBox.Text = "";
 
         }
 
         private void gNameTextBox_Leave(object sender, EventArgs e)
         {
-            gNameTextBox.Text = "Name";
+            if (gNameTextBox.Text == "")
+                gNameTextBox.Text = "Name";
         }
 
         private void gPriceTextBox_Enter(object sender, EventArgs e)
         {
-            oIdTextBox.Text = "";
+            if (gPriceTextBox.Text == "Price")
+                gPriceTextBox.Text = "";
 
         }
 
         private void gPriceTextBox_Leave(object sender, EventArgs e)
         {
-            gPriceTextBox.Text = "Price";
+            if (gPriceTextBox.Text == "")
+                gPriceTextBox.Text = "Price";
 
         }
 
         private void quantityTextBox_Enter(object sender, EventArgs e)
         {
-            quantityTextBox.Text = "";
+            if (quantityTextBox.Text == "Quantity")
+                quantityTextBox.Text = "";
 
         }
 
         private void quantityTextBox_Leave(object sender, EventArgs e)
         {
-            quantityTextBox.Text = "Quantity";
+            if (quantityTextBox.Text == "")
+                quantityTextBox.Text = "Quantity";
         }
     }
 }

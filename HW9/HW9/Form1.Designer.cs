@@ -138,7 +138,7 @@
             // 
             // orderBindingSource
             // 
-            this.orderBindingSource.DataSource = typeof(HW9.Order);
+            this.orderBindingSource.DataSource = typeof(HW9EF.Order);
             // 
             // OSForm
             // 

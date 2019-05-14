@@ -43,7 +43,7 @@ namespace HW8
             quantityTextBox.Text = "Quantity";
             quantityTextBox.ForeColor = Color.Gray;
             orderBindingSource.DataSource = od;
-            if(od!=null)
+            if (od != null)
                 orderDetailBindingSource.DataSource = od.Details;
             //MessageBox.Show(od.Customer.Name);
             this.state = state;
@@ -65,10 +65,10 @@ namespace HW8
                 gNameTextBox.Enabled = false;
                 gPriceTextBox.Enabled = false;
 
-                
+
             }
-            
-                
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,16 +76,16 @@ namespace HW8
             OrderDetail detail = new OrderDetail(new Goods(uint.Parse(gIdTextBox.Text), gNameTextBox.Text, float.Parse(gPriceTextBox.Text)), uint.Parse(quantityTextBox.Text));
             //MessageBox.Show(((OrderDetail)orderDetailBindingSource.Current).Goods.Name);
             o.AddDetails(detail);
-            
+
             //orderDetailBindingSource.MoveLast();
-            
+
             orderDetailBindingSource.ResetBindings(false);
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(!state)
+            if (!state)
             {
                 o = new Order(int.Parse(oIdTextBox.Text), new Customer(uint.Parse(cIdTextBox.Text), cNameTextBox.Text));
             }
@@ -110,7 +110,7 @@ namespace HW8
 
         private void cIdTextBox_Enter(object sender, EventArgs e)
         {
-            if(cIdTextBox.Text == "Id")
+            if (cIdTextBox.Text == "Id")
                 cIdTextBox.Text = "";
 
         }
@@ -123,7 +123,7 @@ namespace HW8
 
         private void oIdTextBox_Leave(object sender, EventArgs e)
         {
-            if(oIdTextBox.Text=="")
+            if (oIdTextBox.Text == "")
                 oIdTextBox.Text = "Id";
         }
 
@@ -142,19 +142,19 @@ namespace HW8
 
         private void gIdTextBox_Enter(object sender, EventArgs e)
         {
-            if(gIdTextBox.Text == "Id")
+            if (gIdTextBox.Text == "Id")
                 gIdTextBox.Text = "";
         }
 
         private void gIdTextBox_Leave(object sender, EventArgs e)
         {
-            if(gIdTextBox.Text == "")
+            if (gIdTextBox.Text == "")
                 gIdTextBox.Text = "Id";
         }
 
         private void gNameTextBox_Enter(object sender, EventArgs e)
         {
-            if(gNameTextBox.Text == "Name")
+            if (gNameTextBox.Text == "Name")
                 gNameTextBox.Text = "";
 
         }
@@ -167,7 +167,7 @@ namespace HW8
 
         private void gPriceTextBox_Enter(object sender, EventArgs e)
         {
-            if(gPriceTextBox.Text == "Price")
+            if (gPriceTextBox.Text == "Price")
                 gPriceTextBox.Text = "";
 
         }
@@ -181,14 +181,14 @@ namespace HW8
 
         private void quantityTextBox_Enter(object sender, EventArgs e)
         {
-            if(quantityTextBox.Text == "Quantity")
+            if (quantityTextBox.Text == "Quantity")
                 quantityTextBox.Text = "";
 
         }
 
         private void quantityTextBox_Leave(object sender, EventArgs e)
         {
-            if(quantityTextBox.Text == "")
+            if (quantityTextBox.Text == "")
                 quantityTextBox.Text = "Quantity";
         }
     }
