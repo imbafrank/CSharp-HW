@@ -28,8 +28,9 @@ namespace TodoApi
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            var connection = @"Server=X1E;Database=ChatLog;Persist Security Info=True;User=admin;Password=admin";
+            var connection = @"Server=X1E;Database=ChatLog;Persist Security Info=True;User ID=admin;Password=admin";
             services.AddDbContext<OrderDbContext>(options => options.UseSqlServer(connection));
+           
                         services.AddScoped<OrderService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

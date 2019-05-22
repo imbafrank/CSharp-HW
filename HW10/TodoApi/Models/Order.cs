@@ -19,8 +19,16 @@ namespace TodoApi.Models {
 
         public Order(string id, string customer, List<OrderDetail> details) {
             Id = id;
-
+            Customer = customer;
             this.Details = details;
+
+
+
+        }
+
+            public Order(string id, string customer) {
+            Id = id;
+            Customer = customer;
 
 
 
